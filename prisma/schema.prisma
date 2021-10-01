@@ -1,0 +1,68 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Usuario {
+  id          Int       @id @default(autoincrement())
+  nome        String    
+  sobrenome   String    
+  email       String    @unique
+  senha       String 
+  cpf         Int       @unique
+  isAdmin     Boolean?
+
+  perfis      Perfil[]
+  jogosUJ UsuarioOnJogo[]
+}
+
+model Perfil {
+  id          Int       @id @default(autoincrement())
+  usuario     Usuario   @relation(fields: [usuarioId],references: [id])
+  usuarioId   Int
+  titulo      String    @unique
+  imagem      String
+}
+
+model Jogo {
+  id          Int       @id @default(autoincrement())
+  nome        String    @unique
+  capa        String    @unique
+  descricao   String    @unique
+  ano         Int 
+  nota        Int 
+  link_yt     String    @unique
+  link_gp     String    @unique
+
+  generosJG JogoOnGenero[]
+  usuariosUJ UsuarioOnJogo[]
+}
+
+model Genero{
+  id          Int       @id @default(autoincrement())
+  nome        String    @unique
+
+  jogosJG JogoOnGenero[]
+}
+
+model JogoOnGenero {
+  jogo        Jogo @relation(fields:[jogoId],references:[id])
+  jogoId      Int
+  genero      Genero @relation(fields:[generoId],references:[id])
+  generoId    Int
+
+  @@id([jogoId, generoId])
+}
+
+model UsuarioOnJogo{
+  usuario     Usuario @relation(fields:[usuarioId],references:[id])
+  usuarioId   Int
+  jogo        Jogo @relation(fields:[jogoId],references:[id])
+  jogoId      Int
+
+  @@id([usuarioId, jogoId])
+}

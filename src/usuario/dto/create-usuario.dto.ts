@@ -1,5 +1,4 @@
 import { Usuario } from "../entities/usuario.entity";
-import { Prisma } from "@prisma/client";
 import { IsInt, IsNotEmpty, IsOptional, IsString, IsBoolean } from "class-validator";
 
 export class CreateUsuarioDto extends Usuario {

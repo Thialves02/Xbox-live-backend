@@ -18,17 +18,17 @@ export class JogoController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.jogoService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.jogoService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateJogoDto: UpdateJogoDto) {
-    return this.jogoService.update(+id, updateJogoDto);
+  update(@Param('id') id: number, @Body() updateJogoDto: UpdateJogoDto) {
+    return this.jogoService.update(id, updateJogoDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.jogoService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.jogoService.remove(id);
   }
 }

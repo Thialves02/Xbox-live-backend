@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsOptional, IsString, IsBoolean } from "class-validator";
+import { IsInt, IsNotEmpty, IsString, isNumber } from "class-validator";
 import { Jogo } from "../entities/jogo.entity";
 
 export class CreateJogoDto extends Jogo{
@@ -14,11 +14,9 @@ export class CreateJogoDto extends Jogo{
     @IsNotEmpty()
     descricao: string
 
-    @IsString()
     @IsNotEmpty()
     ano: number
 
-    @IsString()
     @IsNotEmpty()
     nota : number
 

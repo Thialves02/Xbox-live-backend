@@ -28,13 +28,13 @@ let JogoController = class JogoController {
         return this.jogoService.findAll();
     }
     findOne(id) {
-        return this.jogoService.findOne(+id);
+        return this.jogoService.findOne(id);
     }
     update(id, updateJogoDto) {
-        return this.jogoService.update(+id, updateJogoDto);
+        return this.jogoService.update(id, updateJogoDto);
     }
     remove(id) {
-        return this.jogoService.remove(+id);
+        return this.jogoService.remove(id);
     }
 };
 __decorate([
@@ -54,7 +54,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], JogoController.prototype, "findOne", null);
 __decorate([
@@ -62,14 +62,14 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_jogo_dto_1.UpdateJogoDto]),
+    __metadata("design:paramtypes", [Number, update_jogo_dto_1.UpdateJogoDto]),
     __metadata("design:returntype", void 0)
 ], JogoController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], JogoController.prototype, "remove", null);
 JogoController = __decorate([

@@ -28,13 +28,13 @@ let UsuarioController = class UsuarioController {
         return this.usuarioService.findAll();
     }
     findOne(id) {
-        return this.usuarioService.findOne(+id);
+        return this.usuarioService.findOne(id);
     }
     update(id, updateUsuarioDto) {
-        return this.usuarioService.update(+id, updateUsuarioDto);
+        return this.usuarioService.update(id, updateUsuarioDto);
     }
     remove(id) {
-        return this.usuarioService.remove(+id);
+        return this.usuarioService.remove(id);
     }
 };
 __decorate([
@@ -54,7 +54,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "findOne", null);
 __decorate([
@@ -62,14 +62,14 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_usuario_dto_1.UpdateUsuarioDto]),
+    __metadata("design:paramtypes", [Number, update_usuario_dto_1.UpdateUsuarioDto]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "remove", null);
 UsuarioController = __decorate([

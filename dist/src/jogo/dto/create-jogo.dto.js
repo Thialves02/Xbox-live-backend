@@ -30,12 +30,10 @@ __decorate([
     __metadata("design:type", String)
 ], CreateJogoDto.prototype, "descricao", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
 ], CreateJogoDto.prototype, "ano", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
 ], CreateJogoDto.prototype, "nota", void 0);

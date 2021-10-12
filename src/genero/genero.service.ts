@@ -16,6 +16,21 @@ export class GeneroService {
     return this.prisma.genero.findMany()
   }
 
+  findAllWithGames() {
+    return this.prisma.genero.findMany({
+      include:{
+        jogos:true,
+      }
+    })
+  }
+  findOneWithGames(id: number) {
+    return this.prisma.genero.findUnique({
+      where:{id},
+      include:{
+        jogos:true,
+      }
+    })
+  }
   findOne(id: number) {
     return this.prisma.genero.findUnique({
       where:{id}

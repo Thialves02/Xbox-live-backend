@@ -24,6 +24,21 @@ let GeneroService = class GeneroService {
     findAll() {
         return this.prisma.genero.findMany();
     }
+    findAllWithGames() {
+        return this.prisma.genero.findMany({
+            include: {
+                jogos: true,
+            }
+        });
+    }
+    findOneWithGames(id) {
+        return this.prisma.genero.findUnique({
+            where: { id },
+            include: {
+                jogos: true,
+            }
+        });
+    }
     findOne(id) {
         return this.prisma.genero.findUnique({
             where: { id }

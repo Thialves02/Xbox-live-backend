@@ -17,18 +17,28 @@ export class GeneroController {
     return this.generoService.findAll();
   }
 
+  @Get('withGames')
+  findAllWithGames() {
+    return this.generoService.findAllWithGames();
+  }
+
+  @Get(':id/withGames')
+  findOneWithGames(@Param('id') id: number) {
+    return this.generoService.findOneWithGames(id);
+  }
+  
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.generoService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.generoService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateGeneroDto: UpdateGeneroDto) {
-    return this.generoService.update(+id, updateGeneroDto);
+  update(@Param('id') id: number, @Body() updateGeneroDto: UpdateGeneroDto) {
+    return this.generoService.update(id, updateGeneroDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.generoService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.generoService.remove(id);
   }
 }

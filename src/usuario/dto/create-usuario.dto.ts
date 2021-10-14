@@ -1,5 +1,10 @@
 import { Usuario } from "../entities/usuario.entity";
-import { IsInt, IsNotEmpty, IsOptional, IsString, IsBoolean } from "class-validator";
+import { IsInt, IsNotEmpty, IsOptional, IsString, IsBoolean, IsArray, ValidateNested} from "class-validator";
+import { Perfil } from "../entities/Perfil";
+import { CreatePerfilDto } from "src/perfil/dto/create-perfil.dto";
+import { Type } from "class-transformer";
+
+
 
 export class CreateUsuarioDto extends Usuario {
     @IsString()
@@ -25,4 +30,10 @@ export class CreateUsuarioDto extends Usuario {
     @IsBoolean()
     @IsOptional()
     isAdmin?: boolean | null;
+
+    @ValidateNested({each:true}) 
+    @Type(() => CreatePerfilDto)
+    @IsArray()
+    perfis: CreatePerfilDto[]
 }
+ 

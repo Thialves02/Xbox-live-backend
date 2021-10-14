@@ -16,13 +16,24 @@ let UsuarioService = class UsuarioService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    create(data) {
+    create(dto) {
+        const data = Object.assign(Object.assign({}, dto), { perfis: {
+                create: dto.perfis,
+            } });
         return this.prisma.usuario.create({
             data
         });
     }
     findAll() {
         return this.prisma.usuario.findMany();
+    }
+    findOneWithPerfis(id) {
+        return this.prisma.usuario.findUnique({
+            where: { id },
+            include: {
+                perfis: true,
+            }
+        });
     }
     findOne(id) {
         return this.prisma.usuario.findUnique({

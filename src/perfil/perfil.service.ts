@@ -15,6 +15,14 @@ export class PerfilService {
   findAll() {
     return this.prisma.perfil.findMany()
   }
+  findAllWIthUsuarios() {
+    return this.prisma.perfil.findMany({
+      include:{
+        usuario:true,
+        jogos:true,
+      }
+    })
+  }
 
   findOne(id: number) {
     return this.prisma.perfil.findUnique({

@@ -27,6 +27,9 @@ let PerfilController = class PerfilController {
     findAll() {
         return this.perfilService.findAll();
     }
+    findAllWIthUsuarios() {
+        return this.perfilService.findAllWIthUsuarios();
+    }
     findOne(id) {
         return this.perfilService.findOne(+id);
     }
@@ -50,6 +53,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], PerfilController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('WithUsuarios'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], PerfilController.prototype, "findAllWIthUsuarios", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

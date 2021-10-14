@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUsuarioDto = void 0;
 const usuario_entity_1 = require("../entities/usuario.entity");
 const class_validator_1 = require("class-validator");
+const create_perfil_dto_1 = require("../../perfil/dto/create-perfil.dto");
+const class_transformer_1 = require("class-transformer");
 class CreateUsuarioDto extends usuario_entity_1.Usuario {
 }
 __decorate([
@@ -44,5 +46,11 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
 ], CreateUsuarioDto.prototype, "isAdmin", void 0);
+__decorate([
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => create_perfil_dto_1.CreatePerfilDto),
+    (0, class_validator_1.IsArray)(),
+    __metadata("design:type", Array)
+], CreateUsuarioDto.prototype, "perfis", void 0);
 exports.CreateUsuarioDto = CreateUsuarioDto;
 //# sourceMappingURL=create-usuario.dto.js.map

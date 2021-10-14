@@ -16,6 +16,10 @@ export class PerfilController {
   findAll() {
     return this.perfilService.findAll();
   }
+  @Get('WithUsuarios')
+  findAllWIthUsuarios() {
+    return this.perfilService.findAllWIthUsuarios();
+  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {

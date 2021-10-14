@@ -30,6 +30,9 @@ let UsuarioController = class UsuarioController {
     findOne(id) {
         return this.usuarioService.findOne(id);
     }
+    findOneWithPerfis(id) {
+        return this.usuarioService.findOneWithPerfis(id);
+    }
     update(id, updateUsuarioDto) {
         return this.usuarioService.update(id, updateUsuarioDto);
     }
@@ -57,6 +60,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)(':id/WithPerfis'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "findOneWithPerfis", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),

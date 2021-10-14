@@ -24,6 +24,14 @@ let PerfilService = class PerfilService {
     findAll() {
         return this.prisma.perfil.findMany();
     }
+    findAllWIthUsuarios() {
+        return this.prisma.perfil.findMany({
+            include: {
+                usuario: true,
+                jogos: true,
+            }
+        });
+    }
     findOne(id) {
         return this.prisma.perfil.findUnique({
             where: { id }

@@ -21,6 +21,10 @@ export class UsuarioController {
   findOne(@Param('id') id: number) {
     return this.usuarioService.findOne(id);
   }
+  @Get(':id/WithPerfis')
+  findOneWithPerfis(@Param('id') id: number) {
+    return this.usuarioService.findOneWithPerfis(id);
+  }
 
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateUsuarioDto: UpdateUsuarioDto) {

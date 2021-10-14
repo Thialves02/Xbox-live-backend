@@ -1,5 +1,5 @@
-import { Prisma } from "@prisma/client";
-export declare class Usuario implements Prisma.UsuarioUncheckedCreateInput {
+import { Perfil } from "./Perfil";
+export declare class Usuario {
     id?: number;
     nome: string;
     sobrenome: string;
@@ -7,4 +7,5 @@ export declare class Usuario implements Prisma.UsuarioUncheckedCreateInput {
     senha: string;
     cpf: number;
     isAdmin?: boolean;
+    perfis: Perfil[];
 }

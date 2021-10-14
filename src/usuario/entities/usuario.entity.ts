@@ -1,6 +1,6 @@
-import { Prisma } from "@prisma/client";
+import { Perfil } from "./Perfil"
 
-export class Usuario implements Prisma.UsuarioUncheckedCreateInput{
+export class Usuario{
     id?: number
     nome: string
     sobrenome: string
@@ -8,6 +8,7 @@ export class Usuario implements Prisma.UsuarioUncheckedCreateInput{
     senha: string
     cpf: number
     isAdmin?: boolean
-    /* perfis?: PerfilUncheckedCreateNestedManyWithoutUsuarioInput
-    jogosUJ?: UsuarioOnJogoUncheckedCreateNestedManyWithoutUsuarioInput */
+    perfis:Perfil[]
 }
+
+

@@ -28,6 +28,12 @@ let PerfilService = class PerfilService {
         return this.prisma.perfil.findMany({
             include: {
                 usuario: true,
+            }
+        });
+    }
+    findAllWithJogos() {
+        return this.prisma.perfil.findMany({
+            include: {
                 jogos: true,
             }
         });

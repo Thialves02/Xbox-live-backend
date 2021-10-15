@@ -30,6 +30,9 @@ let PerfilController = class PerfilController {
     findAllWIthUsuarios() {
         return this.perfilService.findAllWIthUsuarios();
     }
+    findAllWithJogos() {
+        return this.perfilService.findAllWithJogos();
+    }
     findOne(id) {
         return this.perfilService.findOne(+id);
     }
@@ -59,6 +62,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], PerfilController.prototype, "findAllWIthUsuarios", null);
+__decorate([
+    (0, common_1.Get)('WithJogos'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], PerfilController.prototype, "findAllWithJogos", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

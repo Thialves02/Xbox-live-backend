@@ -8,6 +8,8 @@ export declare class PerfilService {
     findAll(): import(".prisma/client").PrismaPromise<import(".prisma/client").Perfil[]>;
     findAllWIthUsuarios(): import(".prisma/client").PrismaPromise<(import(".prisma/client").Perfil & {
         usuario: import(".prisma/client").Usuario;
+    })[]>;
+    findAllWithJogos(): import(".prisma/client").PrismaPromise<(import(".prisma/client").Perfil & {
         jogos: import(".prisma/client").Jogo[];
     })[]>;
     findOne(id: number): import(".prisma/client").Prisma.Prisma__PerfilClient<import(".prisma/client").Perfil>;

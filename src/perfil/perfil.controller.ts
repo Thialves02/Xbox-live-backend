@@ -20,7 +20,10 @@ export class PerfilController {
   findAllWIthUsuarios() {
     return this.perfilService.findAllWIthUsuarios();
   }
-
+  @Get('WithJogos')
+  findAllWithJogos() {
+    return this.perfilService.findAllWithJogos();
+  }
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.perfilService.findOne(+id);

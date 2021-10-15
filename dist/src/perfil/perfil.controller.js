@@ -36,6 +36,9 @@ let PerfilController = class PerfilController {
     findOne(id) {
         return this.perfilService.findOne(+id);
     }
+    findOneWithJogos(id) {
+        return this.perfilService.findOneWithJogos(+id);
+    }
     update(id, updatePerfilDto) {
         return this.perfilService.update(+id, updatePerfilDto);
     }
@@ -75,6 +78,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], PerfilController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)(':id/WithJogos'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], PerfilController.prototype, "findOneWithJogos", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),

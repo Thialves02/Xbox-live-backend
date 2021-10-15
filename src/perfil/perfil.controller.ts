@@ -28,7 +28,10 @@ export class PerfilController {
   findOne(@Param('id') id: string) {
     return this.perfilService.findOne(+id);
   }
-
+  @Get(':id/WithJogos')
+  findOneWithJogos(@Param('id') id: string) {
+    return this.perfilService.findOneWithJogos(+id);
+  }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePerfilDto: UpdatePerfilDto) {
     return this.perfilService.update(+id, updatePerfilDto);

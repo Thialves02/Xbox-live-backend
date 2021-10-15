@@ -34,6 +34,14 @@ export class PerfilService {
       where:{id}
     })
   }
+  findOneWithJogos(id: number) {
+    return this.prisma.perfil.findUnique({
+      where:{id},
+      include:{
+        jogos:true
+      }
+    })
+  }
 
   update(id: number, data: UpdatePerfilDto) {
     return this.prisma.perfil.update({

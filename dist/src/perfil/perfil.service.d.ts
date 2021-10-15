@@ -13,6 +13,9 @@ export declare class PerfilService {
         jogos: import(".prisma/client").Jogo[];
     })[]>;
     findOne(id: number): import(".prisma/client").Prisma.Prisma__PerfilClient<import(".prisma/client").Perfil>;
+    findOneWithJogos(id: number): import(".prisma/client").Prisma.Prisma__PerfilClient<import(".prisma/client").Perfil & {
+        jogos: import(".prisma/client").Jogo[];
+    }>;
     update(id: number, data: UpdatePerfilDto): import(".prisma/client").Prisma.Prisma__PerfilClient<import(".prisma/client").Perfil>;
     remove(id: number): import(".prisma/client").Prisma.Prisma__PerfilClient<import(".prisma/client").Perfil>;
 }

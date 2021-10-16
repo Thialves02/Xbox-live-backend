@@ -21,7 +21,10 @@ export class JogoController {
   findOne(@Param('id') id: number) {
     return this.jogoService.findOne(id);
   }
-
+  @Get(':id/WithGenero')
+  findOneWithGenero(@Param('id') id: number) {
+    return this.jogoService.findOneWithGenero(id);
+  }
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateJogoDto: UpdateJogoDto) {
     return this.jogoService.update(id, updateJogoDto);

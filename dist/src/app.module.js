@@ -14,11 +14,12 @@ const usuario_module_1 = require("./usuario/usuario.module");
 const perfil_module_1 = require("./perfil/perfil.module");
 const jogo_module_1 = require("./jogo/jogo.module");
 const genero_module_1 = require("./genero/genero.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [usuario_module_1.UsuarioModule, perfil_module_1.PerfilModule, jogo_module_1.JogoModule, genero_module_1.GeneroModule],
+        imports: [usuario_module_1.UsuarioModule, perfil_module_1.PerfilModule, jogo_module_1.JogoModule, genero_module_1.GeneroModule, auth_module_1.AuthModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

@@ -30,6 +30,9 @@ let JogoController = class JogoController {
     findOne(id) {
         return this.jogoService.findOne(id);
     }
+    findOneWithGenero(id) {
+        return this.jogoService.findOneWithGenero(id);
+    }
     update(id, updateJogoDto) {
         return this.jogoService.update(id, updateJogoDto);
     }
@@ -57,6 +60,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], JogoController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)(':id/WithGenero'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], JogoController.prototype, "findOneWithGenero", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),

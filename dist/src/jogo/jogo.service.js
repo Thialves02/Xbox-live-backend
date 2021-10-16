@@ -31,6 +31,14 @@ let JogoService = class JogoService {
             where: { id }
         });
     }
+    findOneWithGenero(id) {
+        return this.prisma.jogo.findUnique({
+            where: { id },
+            include: {
+                generos: true,
+            }
+        });
+    }
     update(id, data) {
         return this.prisma.jogo.update({
             where: { id },

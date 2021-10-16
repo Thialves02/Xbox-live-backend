@@ -35,10 +35,8 @@ let UsuarioService = class UsuarioService {
             }
         });
     }
-    findOne(id) {
-        return this.prisma.usuario.findUnique({
-            where: { id }
-        });
+    findById(id) {
+        return this.prisma.usuario.findUnique({ where: { id } });
     }
     findByEmail(email) {
         return this.prisma.usuario.findUnique({ where: { email }, include: { perfis: true } });

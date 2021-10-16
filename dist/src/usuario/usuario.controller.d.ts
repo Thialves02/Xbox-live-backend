@@ -14,7 +14,7 @@ export declare class UsuarioController {
         isAdmin: boolean;
     }>;
     findAll(): import(".prisma/client").PrismaPromise<import(".prisma/client").Usuario[]>;
-    findOne(id: number): import(".prisma/client").Prisma.Prisma__UsuarioClient<import(".prisma/client").Usuario>;
+    findOne(id: number): any;
     findOneWithPerfis(id: number): import(".prisma/client").Prisma.Prisma__UsuarioClient<import(".prisma/client").Usuario & {
         perfis: import(".prisma/client").Perfil[];
     }>;

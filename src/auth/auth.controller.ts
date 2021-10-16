@@ -5,6 +5,8 @@ import { LoginRequestBody } from './model/LoginRequestBody';
 @Controller()
 export class AuthController {
     constructor(private readonly authService: AuthService){}
+
+    @Public()
     @Post('login')
     @HttpCode(HttpStatus.OK)
     login(@Body()dto:LoginRequestBody){

@@ -39,7 +39,10 @@ export class UsuarioService {
     })
   }
   findById(id: number) {
-    return this.prisma.usuario.findUnique({ where: { id } });
+    return this.prisma.usuario.findUnique({
+      where: { id },
+      include: { perfis: true },
+    });
   }
    findByEmail(email: string) {
     return this.prisma.usuario.findUnique({ where: { email } , include:{perfis:true}});

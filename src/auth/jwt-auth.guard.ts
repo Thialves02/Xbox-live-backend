@@ -18,7 +18,7 @@ import { AuthRequest } from './model/AuthRequest';
 
 // Decorators
 import { IS_PUBLIC_KEY } from './public.decorator';
-
+import { Usuario } from 'src/usuario/entities/usuario.entity';
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {
@@ -52,17 +52,17 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       mergeMap((request) =>
         of(request).pipe(
           map((req) => {
-            if (!req.usuario) {
+            if (!req.user) {
               throw Error('User was not found in request.');
             }
 
-            return req.usuario;
+            return req.user;
           }),
           mergeMap((userFromJwt: UserFromJwt) =>
             this.usuarioService.findById(userFromJwt.id),
           ),
-          tap((usuario) => {
-            request.principal = usuario;
+          tap((user) => {
+            request.principal = user;
           }),
         ),
       ),

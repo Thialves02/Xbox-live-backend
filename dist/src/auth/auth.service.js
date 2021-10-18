@@ -15,6 +15,7 @@ const jwt_1 = require("@nestjs/jwt");
 const usuario_entity_1 = require("../usuario/entities/usuario.entity");
 const usuario_service_1 = require("../usuario/usuario.service");
 const bcrypt = require("bcrypt");
+const unauthorized_error_1 = require("../errors/unauthorized.error");
 let AuthService = class AuthService {
     constructor(usuarioService, jwtService) {
         this.usuarioService = usuarioService;
@@ -38,7 +39,7 @@ let AuthService = class AuthService {
                 return Object.assign(Object.assign({}, usuario), { senha: undefined });
             }
         }
-        throw new Error('Não autorizado');
+        throw new unauthorized_error_1.UnauthorizedError('Email address or password provided is incorrect.');
     }
 };
 AuthService = __decorate([

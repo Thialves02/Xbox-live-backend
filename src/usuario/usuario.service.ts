@@ -38,7 +38,7 @@ export class UsuarioService {
       }
     })
   }
-  findById(id: number) {
+  findOne(id: number) {
     return this.prisma.usuario.findUnique({
       where: { id },
       include: { perfis: true },

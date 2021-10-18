@@ -59,7 +59,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
             return req.user;
           }),
           mergeMap((userFromJwt: UserFromJwt) =>
-            this.usuarioService.findById(userFromJwt.id),
+            this.usuarioService.findOne(userFromJwt.id),
           ),
           tap((user) => {
             request.principal = user;

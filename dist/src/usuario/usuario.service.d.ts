@@ -18,7 +18,9 @@ export declare class UsuarioService {
     findOneWithPerfis(id: number): Prisma.Prisma__UsuarioClient<import(".prisma/client").Usuario & {
         perfis: import(".prisma/client").Perfil[];
     }>;
-    findById(id: number): Prisma.Prisma__UsuarioClient<import(".prisma/client").Usuario>;
+    findOne(id: number): Prisma.Prisma__UsuarioClient<import(".prisma/client").Usuario & {
+        perfis: import(".prisma/client").Perfil[];
+    }>;
     findByEmail(email: string): Prisma.Prisma__UsuarioClient<import(".prisma/client").Usuario & {
         perfis: import(".prisma/client").Perfil[];
     }>;

@@ -20,6 +20,7 @@ const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
 const usuario_service_1 = require("../usuario/usuario.service");
 const public_decorator_1 = require("./public.decorator");
+const usuario_entity_1 = require("../usuario/entities/usuario.entity");
 let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
     constructor(reflector, usuarioService) {
         super();
@@ -39,12 +40,12 @@ let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
             return canActivate;
         }
         return (0, rxjs_1.of)(canActivate).pipe((0, operators_1.mergeMap)((value) => value), (0, operators_1.takeWhile)((value) => value), (0, operators_1.map)(() => context.switchToHttp().getRequest()), (0, operators_1.mergeMap)((request) => (0, rxjs_1.of)(request).pipe((0, operators_1.map)((req) => {
-            if (!req.usuario) {
+            if (!req.user) {
                 throw Error('User was not found in request.');
             }
-            return req.usuario;
-        }), (0, operators_1.mergeMap)((userFromJwt) => this.usuarioService.findById(userFromJwt.id)), (0, operators_1.tap)((usuario) => {
-            request.principal = usuario;
+            return req.user;
+        }), (0, operators_1.mergeMap)((userFromJwt) => this.usuarioService.findOne(userFromJwt.id)), (0, operators_1.tap)((user) => {
+            request.principal = user;
         }))), (0, operators_1.map)((usuario) => Boolean(usuario)));
     }
 };

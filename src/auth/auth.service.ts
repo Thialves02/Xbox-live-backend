@@ -6,6 +6,7 @@ import { LoginRequestBody } from './model/LoginRequestBody';
 import * as bcrypt from 'bcrypt';
 import { UserPayload } from './model/UserPayload';
 import { UserToken } from './model/UserToke';
+import { UnauthorizedError } from 'src/errors/unauthorized.error';
 
 @Injectable()
 export class AuthService {
@@ -42,6 +43,6 @@ export class AuthService {
             };
           }
         }
-        throw new Error('Não autorizado')
+        throw new UnauthorizedError('Email address or password provided is incorrect.')
     }
 }

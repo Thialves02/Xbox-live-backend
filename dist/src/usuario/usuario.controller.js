@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const usuario_service_1 = require("./usuario.service");
 const create_usuario_dto_1 = require("./dto/create-usuario.dto");
 const update_usuario_dto_1 = require("./dto/update-usuario.dto");
+const usuario_entity_1 = require("./entities/usuario.entity");
+const current_user_decorator_1 = require("../decorators/current-user.decorator");
 let UsuarioController = class UsuarioController {
     constructor(usuarioService) {
         this.usuarioService = usuarioService;
@@ -27,11 +29,11 @@ let UsuarioController = class UsuarioController {
     findAll() {
         return this.usuarioService.findAll();
     }
+    findOneWithPerfis(currentUser) {
+        return this.usuarioService.findOneWithPerfis(currentUser.id);
+    }
     findOne(id) {
         return this.usuarioService.findOne(id);
-    }
-    findOneWithPerfis(id) {
-        return this.usuarioService.findOneWithPerfis(id);
     }
     update(id, updateUsuarioDto) {
         return this.usuarioService.update(id, updateUsuarioDto);
@@ -54,19 +56,19 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "findAll", null);
 __decorate([
+    (0, common_1.Get)('WithPerfis'),
+    __param(0, (0, current_user_decorator_1.CurrentUser)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [usuario_entity_1.Usuario]),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "findOneWithPerfis", null);
+__decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Get)(':id/WithPerfis'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "findOneWithPerfis", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),

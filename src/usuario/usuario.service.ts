@@ -4,7 +4,6 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { Prisma } from "@prisma/client";
 import * as bcrypt from 'bcrypt';
-import { Usuario } from './entities/usuario.entity';
 
 @Injectable()
 export class UsuarioService {
